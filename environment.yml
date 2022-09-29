@@ -1,0 +1,22 @@
+name: relational-proxies
+channels:
+  - pytorch
+  - pyg
+  - conda-forge
+  - metric-learning
+  - anaconda
+dependencies:
+  - python=3.9
+  - pytorch
+  - torchvision
+  - cudatoolkit=11.3
+  - pyg
+  - pytorch-metric-learning
+  - scikit-image
+  - opencv
+  - einops
+  - tensorboardx
+  - tensorboard
+  - tqdm
+  - timm
+  - pillow=8.3.1
