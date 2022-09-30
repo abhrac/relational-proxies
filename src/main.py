@@ -10,13 +10,15 @@ def main():
     init.env()
     args, trainloader, testloader = init.data()
 
-    model = init.params()
+    model = init.modeltype()
     save_path, start_epoch = init.checkpoint()
 
-    for epoch in range(start_epoch + 1, constants.END_EPOCH + 1):
-        model.train_one_epoch(trainloader, epoch, save_path)
-        if epoch % constants.TEST_EVERY == 0:
-            model.test(testloader, epoch, save_path)
+    if args.eval_only:
+        model.test(testloader, epoch=0)
+    else:
+        for epoch in range(start_epoch + 1, constants.END_EPOCH + 1):
+            model.train_one_epoch(trainloader, epoch, save_path)
+            model.test(testloader, epoch)
 
     model.post_job()
 

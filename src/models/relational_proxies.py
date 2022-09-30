@@ -58,22 +58,23 @@ class RelationalProxies(nn.Module):
         self.post_epoch('Train', epoch, epoch_state, len(trainloader.dataset), save_path)
 
     @torch.no_grad()
-    def test(self, testloader, epoch, save_path):
-        print('Testing %d epoch' % epoch)
-        self.eval()
-        device = self.proxy_criterion.proxies.device  # hacky, but keeps the arg list clean
-        epoch_state = {'loss': 0, 'correct': 0}
-        for i, data in enumerate(tqdm(testloader)):
-            im, labels = data
-            im, labels = im.to(device), labels.to(device)
+    def test(self, testloader, epoch):
+        if epoch % constants.TEST_EVERY == 0:
+            print('Testing %d epoch' % epoch)
+            self.eval()
+            device = self.proxy_criterion.proxies.device  # hacky, but keeps the arg list clean
+            epoch_state = {'loss': 0, 'correct': 0}
+            for i, data in enumerate(tqdm(testloader)):
+                im, labels = data
+                im, labels = im.to(device), labels.to(device)
 
-            global_repr, summary_repr, relation_repr = self.compute_reprs(im)
-            epoch_state = self.predict(global_repr, summary_repr, relation_repr, labels, epoch_state)
+                global_repr, summary_repr, relation_repr = self.compute_reprs(im)
+                epoch_state = self.predict(global_repr, summary_repr, relation_repr, labels, epoch_state)
 
-            loss = self.proxy_criterion(relation_repr, labels)
-            epoch_state['loss'] += loss.item()
+                loss = self.proxy_criterion(relation_repr, labels)
+                epoch_state['loss'] += loss.item()
 
-        self.post_epoch('Test', epoch, epoch_state, len(testloader.dataset), save_path)
+            self.post_epoch('Test', epoch, epoch_state, len(testloader.dataset), None)
 
     def compute_reprs(self, im):
         global_embed, local_embeds = self.backbone(im)

@@ -58,7 +58,11 @@ class Initializers:
             print('[INFO] Dataset does not match. Exiting...')
             exit(1)
 
-        path_data = os.path.join(constants.HOME, 'Datasets', args.dataset)
+        if args.data_root is None:
+            path_data = os.path.join(constants.HOME, 'Datasets', args.dataset)
+        else:
+            path_data = args.data_root
+
         # Note: for FGVCAircraft dataset, there are three splits.
         # We will use the trainval split to train the model.
         if args.dataset == 'FGVCAircraft':
@@ -83,13 +87,16 @@ class Initializers:
 
         return args, trainloader, testloader
 
-    def params(self):
+    def modeltype(self):
         args, device = self.args, self.device
         # Get the pretrained backbone for extracting global-views
         backbone = DisjointEncoder(num_classes=args.n_classes, num_local=args.n_local, device=device)
         print("[INFO]", str(str(constants.BACKBONE)), "loaded in memory.")
 
-        logdir = os.path.join(args.checkpoint, args.dataset, 'logdir')
+        if args.logdir is None:
+            logdir = os.path.join(args.checkpoint, args.dataset, 'logdir')
+        else:
+            logdir = args.logdir
         model = RelationalProxies(backbone, args.n_classes, logdir)
         print('[INFO] Model: Relational Proxies')
         model.to(device)
