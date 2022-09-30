@@ -47,7 +47,7 @@ python3 src/main.py --data_root='RootDirForAllDatasets' --dataset='DatasetName' 
 @inproceedings{Chaudhuri2022RelationalProxies,
  author = {Abhra Chaudhuri, Massimiliano Mancini, Zeynep Akata, Anjan Dutta},
  booktitle = {Proceedings of Advances in Neural Information Processing Systems (NeurIPS)},
- title = {Relational Proxies},
+ title = {Relational Proxies: Emergent Relationships as Fine-Grained Discriminators},
  year = {2022}
 }
 ```
