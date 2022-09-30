@@ -39,7 +39,7 @@ and place it under the folder `./checkpoint/$DataSetName/`,
 where `./checkpoint` is under the project root, but could optionally be elsewhere too
 (see `src/options.py`). Then, run the following command:
 ```shell
-python3 src/main.py --data_root='RootDirForAllDatasets' --dataset='DatasetName' --pretrained
+python3 src/main.py --data_root='RootDirForAllDatasets' --dataset='DatasetName' --pretrained --eval_only
 ```
 
 ## Citation
