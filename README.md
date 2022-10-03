@@ -42,6 +42,11 @@ where `./checkpoint` is under the project root, but could optionally be elsewher
 python3 src/main.py --data_root='RootDirForAllDatasets' --dataset='DatasetName' --pretrained --eval_only
 ```
 
+## Results
+| |FGVC Aircraft | Stanford Cars |CUB | NABirds | iNaturalist | Cotton Cultivar | Soy Cultivar |
+|:-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|**Relational Proxies** | 95.25 $\pm$ 0.02| 96.30 $\pm$ 0.04 | 92.00 $\pm$ 0.01 | 91.20 $\pm$ 0.02 |72.15 $\pm$ 0.03 | 69.81 $\pm$ 0.04 | 51.20 $\pm$ 0.02
+
 ## Citation
 ```
 @inproceedings{Chaudhuri2022RelationalProxies,
