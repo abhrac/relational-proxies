@@ -1,6 +1,6 @@
 # Relational Proxies: Emergent Relationships as Fine-Grained Discriminators
 
-Official implementation of "Relational Proxies: Emergent Relationships as Fine-Grained Discriminators",
+Official implementation of "[Relational Proxies: Emergent Relationships as Fine-Grained Discriminators](https://arxiv.org/abs/2210.02149)",
 NeurIPS 2022.
 
 Our framework helps learn a cross-view representation by modelling local-to-global emergent relationships
