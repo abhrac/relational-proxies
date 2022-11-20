@@ -45,7 +45,14 @@ python3 src/main.py --data_root='RootDirForAllDatasets' --dataset='DatasetName' 
 ## Results
 | |FGVC Aircraft | Stanford Cars |CUB | NABirds | iNaturalist | Cotton Cultivar | Soy Cultivar |
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-|**Relational Proxies** | 95.25 $\pm$ 0.02| 96.30 $\pm$ 0.04 | 92.00 $\pm$ 0.01 | 91.20 $\pm$ 0.02 |72.15 $\pm$ 0.03 | 69.81 $\pm$ 0.04 | 51.20 $\pm$ 0.02
+|MaxEnt, NeurIPS'18 | 89.76 | 93.85 | 86.54 | - | - | - | - |
+|DBTNet, NeurIPS'19 | 91.60 | 94.50 | 88.10 | - | - | - | - |
+|StochNorm, NeurIPS'20 | 81.79 | 87.57 | 79.71 | 74.94 | 60.75 | 45.41 | 38.50 |
+|MMAL, MMM'21 | 94.70 | 95.00 | 89.60 | 87.10 | 69.85 | 65.00 | 47.00 |
+|FFVT, BMVC'21 | 79.80 | 91.25 | 91.65 | 89.42 | 70.30 | 57.92 | 44.17 |
+|CAP, AAAI'21 | 94.90 | 95.70 | 91.80 | 91.00 | - | - | - |
+|TransFG, AAAI'22 | 80.59 | 94.80 | 91.70 | 90.80 | 71.70 | 45.84 | 38.67 |
+|**Relational Proxies** | 95.25 $\pm$ 0.02| 96.30 $\pm$ 0.04 | 92.00 $\pm$ 0.01 | 91.20 $\pm$ 0.02 |72.15 $\pm$ 0.03 | 69.81 $\pm$ 0.04 | 51.20 $\pm$ 0.02|
 
 ## Citation
 ```
