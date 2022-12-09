@@ -19,11 +19,11 @@ cd relational-proxies
 2. Create and activate conda environment:
 ```shell
 conda env create -f environment.yml
-conda activate environment.yml
+conda activate relational-proxies
 ```
 3. Download the .pth file from
 [here](https://drive.google.com/file/d/1P556ct4WTxWgZSLsKj4k9PZ52g6StGFA/view?usp=sharing)
-and place it in the `./view_localizer/` folder under the project root.
+and place it in the `./view_extractor/` folder under the project root.
 
 ## Training
 To train the model from scratch, run the following:
