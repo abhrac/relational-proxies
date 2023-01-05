@@ -57,7 +57,7 @@ python3 src/main.py --data_root='RootDirForAllDatasets' --dataset='DatasetName' 
 ## Citation
 ```
 @inproceedings{Chaudhuri2022RelationalProxies,
- author = {Abhra Chaudhuri, Massimiliano Mancini, Zeynep Akata, Anjan Dutta},
+ author = {Abhra Chaudhuri and Massimiliano Mancini and Zeynep Akata and Anjan Dutta},
  booktitle = {Proceedings of Advances in Neural Information Processing Systems (NeurIPS)},
  title = {Relational Proxies: Emergent Relationships as Fine-Grained Discriminators},
  year = {2022}
