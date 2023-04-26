@@ -90,7 +90,7 @@ class RelationalProxies(nn.Module):
         summary_logits = F.linear(summary_repr, self.proxy_criterion.proxies)
         relation_logits = F.linear(relation_repr, self.proxy_criterion.proxies)
 
-        mean_logits = global_logits + summary_logits + relation_logits / 3
+        mean_logits = (global_logits + summary_logits + relation_logits) / 3
         pred = mean_logits.max(1, keepdim=True)[1]
         epoch_state['correct'] += pred.eq(labels.view_as(pred)).sum().item()
 
