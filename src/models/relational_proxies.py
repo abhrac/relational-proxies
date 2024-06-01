@@ -24,6 +24,7 @@ class RelationalProxies(nn.Module):
         self.backbone = backbone
         self.aggregator = AST(num_inputs=backbone.num_local, dim=self.feature_dim, depth=3, heads=3, mlp_dim=256)
         self.relation_net = RelationNet(feature_dim=self.feature_dim)
+        self.wtFrac_local, self.wtFrac_global, self.wtFrac_relational = 1, 1, 3
 
         self.optimizer = torch.optim.SGD(chain(
             backbone.parameters(), self.aggregator.parameters(), self.relation_net.parameters()),
@@ -90,8 +91,8 @@ class RelationalProxies(nn.Module):
         summary_logits = F.linear(summary_repr, self.proxy_criterion.proxies)
         relation_logits = F.linear(relation_repr, self.proxy_criterion.proxies)
 
-        mean_logits = (global_logits + summary_logits + relation_logits) / 3
-        pred = mean_logits.max(1, keepdim=True)[1]
+        combined_logits = (global_logits / self.wtFrac_global) + (summary_logits / self.wtFrac_local) + (relation_logits / self.wtFrac_relational)
+        pred = combined_logits.max(1, keepdim=True)[1]
         epoch_state['correct'] += pred.eq(labels.view_as(pred)).sum().item()
 
         return epoch_state
