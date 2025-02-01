@@ -55,6 +55,9 @@ python3 src/main.py --data_root='RootDirForAllDatasets' --dataset='DatasetName' 
 |TransFG, AAAI'22 | 80.59 | 94.80 | 91.70 | 90.80 | 71.70 | 45.84 | 38.67 |
 |**Ours (Relational Proxies)** | **95.25** $\pm$ 0.02| **96.30** $\pm$ 0.04 | **92.00** $\pm$ 0.01 | **91.20** $\pm$ 0.02 |**72.15** $\pm$ 0.03 | **69.81** $\pm$ 0.04 | **51.20** $\pm$ 0.02|
 
+## Disclaimer
+The pretrained weights provided can be used to reproduce the results in the paper. However, since the training of the models were done using pretrained weights from prior works ([48] in the main paper), and it consisted of several phases with slightly different hyperparameters for each phase, not all of which were always kept track of, running the training scripts from scratch with the default hyperparameters provided here is unlikely to produce expected results. The purpose of the training scripts provided here is to illustrate how the end-to-end pipelines were implemented. The purpose of the pretrained weights provided here is to reproduce the actual results.
+
 ## Citation
 ```
 @inproceedings{Chaudhuri2022RelationalProxies,
